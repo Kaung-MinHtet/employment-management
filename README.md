@@ -52,11 +52,12 @@ cp .env.example .env
 php artisan key:generate
 php artisan migrate --seed
 npm install && npm run dev
-
+```
 
 ##### Open new terminal tab
 ```bash
 php artisan serve
+```
 
 ---
 ## Postman file location
