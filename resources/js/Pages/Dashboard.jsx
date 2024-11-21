@@ -1,8 +1,13 @@
+import BarChart from '@/Components/BarChart';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
+import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, ArcElement, Tooltip, Legend } from "chart.js";
+import { Line } from "react-chartjs-2";
 
-export default function Dashboard({ ttl_companies, ttl_employees, recent_companies, recent_employees, user }) {
-    console.log(user);
+ChartJS.register(ArcElement, CategoryScale, LinearScale, PointElement, LineElement, Tooltip, Legend);
+
+export default function Dashboard({ ttl_companies, ttl_employees, recent_companies, recent_employees, user, companies, employee_per_company }) {
+    // console.log(employee_per_company);
     return (
         <AuthenticatedLayout
             header={
@@ -39,6 +44,11 @@ export default function Dashboard({ ttl_companies, ttl_employees, recent_compani
                             <div className="p-6 bg-white shadow text-black flex justify-between items-center">
                                 <h4 className='text-lg font-bold'>Recent Employees</h4>
                                 <p>{recent_employees}</p>
+                            </div>
+                        </div>
+                        <div className='mt-4 md:mt-4 grid grid-cols-1 md:grid-cols-2 gap-4 mx-4 md:mx-0'>
+                            <div className="bg-white p-4 shadow">
+                                <BarChart companies={companies} employee_per_company={employee_per_company} />
                             </div>
                         </div>
                     </div>

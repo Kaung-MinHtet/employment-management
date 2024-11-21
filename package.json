@@ -24,6 +24,8 @@
         "@emotion/react": "^11.13.5",
         "@emotion/styled": "^11.13.5",
         "@mui/x-data-grid": "^7.22.2",
+        "chart.js": "^4.4.6",
+        "react-chartjs-2": "^5.2.0",
         "react-dropzone": "^14.3.5",
         "react-toastify": "^10.0.6"
     }

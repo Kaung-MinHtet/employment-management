@@ -30,19 +30,39 @@ Route::get('/dashboard', function () {
         $ttl_employees = Employee::count();
         $recent_companies = Company::whereDate('created_at', now())->count();
         $recent_employees = Employee::whereDate('created_at', now())->count();
+
+        $companies = Company::get()->pluck('name')->toArray();
+
+        $employee_per_company = [];
+        foreach (Company::all() as $company) {
+            $employee_count = Employee::where('company_id', $company->id)->count();
+
+            array_push($employee_per_company, $employee_count);
+        }
     } else {
         $ttl_companies = null;
-        $ttl_employees = Employee::where('company_id', auth()->user()->company_id)->count();
+        $ttl_employees = Employee::where('company_id', auth()->user()->company_id ?? 0)->count();
         $recent_companies = null;
-        $recent_employees = Employee::where('company_id', auth()->user()->company_id)->whereDate('created_at', now())->count();
+        $recent_employees = Employee::where('company_id', auth()->user()->company_id ?? 0)->whereDate('created_at', now())->count();
+        
+        $companies = Company::where('id', auth()->user()->company_id ?? 0)->get()->pluck('name')->toArray();
+
+        $employee_per_company = [];
+        foreach (Company::where('id', auth()->user()->company_id ?? 0)->get() as $company) {
+            $employee_count = Employee::where('company_id', $company->id)->count();
+
+            array_push($employee_per_company, $employee_count);
+        }
     }
-    
+
     return Inertia::render('Dashboard', [
         'ttl_companies' => $ttl_companies,
         'ttl_employees' => $ttl_employees,
         'recent_companies' => $recent_companies,
         'recent_employees' => $recent_employees,
-        'user' => auth()->user()
+        'user' => auth()->user(),
+        'companies' => $companies,
+        'employee_per_company' => $employee_per_company
     ]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
