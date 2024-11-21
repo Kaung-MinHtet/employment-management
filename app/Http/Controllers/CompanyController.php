@@ -17,6 +17,7 @@ class CompanyController extends Controller
     public function index()
     {
         $companies = Company::select('id', 'name', 'email', 'logo', 'created_at')->paginate(10);
+        // dd(env('APP_URL'));
         return Inertia::render('Company/Index', ['companies' => $companies, 'storage_url' => env('APP_URL'), 'toast_message' => session('toast_message')]);
     }
 
@@ -34,7 +35,7 @@ class CompanyController extends Controller
     public function store(CompanyStoreRequest $request)
     {
         // dd($request);
-        $imageName = time() . '.' . $request->logo->getClientOriginalName();
+        $imageName = time() . $request->file('logo')->getClientOriginalExtension();
         Storage::disk('public')->putFileAs('/', $request->logo, $imageName);
 
 
@@ -80,7 +81,7 @@ class CompanyController extends Controller
         // dd($request);
         $imageName = NULL;
         if($request->logo) {
-            $imageName = time() . '.' . $request->logo->getClientOriginalName();
+            $imageName = time() . $request->file('logo')->getClientOriginalExtension();
             Storage::disk('public')->putFileAs('/', $request->logo, $imageName);
         }
 

@@ -18,17 +18,20 @@ class UserSeeder extends Seeder
             [
                 'name' => 'Admin',
                 'email' => 'admin@admin.com',
-                'password' => 'password'
+                'password' => 'password',
+                'role' => 'admin'
             ],
             [
                 'name' => 'Manager',
                 'email' => 'manager@company.com',
-                'password' => 'password'
+                'password' => 'password',
+                'role' => 'manager'
             ],
             [
                 'name' => 'User',
                 'email' => 'user@company.com',
-                'password' => 'password'
+                'password' => 'password',
+                'role' => 'manager'
             ]
         ];
 
@@ -36,7 +39,8 @@ class UserSeeder extends Seeder
             User::create([
                 'name' => $account['name'],
                 'email' => $account['email'],
-                'password' => Hash::make($account['password'])
+                'password' => Hash::make($account['password']),
+                'role' => $account['role']
             ]);
         }
 

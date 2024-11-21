@@ -43,7 +43,7 @@ const Index = ({ toast_message }) => {
         { field: "profile_picture", headerName: "Profile Picture", width: 150, renderCell: (params) => {
             if(params.row.profile_picture != null) {
                 return (
-                    <img src={storage_url + "storage/" + params.value} alt="Profile Picture" className="w-10 h-10 rounded-full" />
+                    <img src={window.location.origin + "/storage/" + params.value} alt="Profile Picture" className="w-10 h-10 rounded-full" />
                 )
             } else {
                 return "";

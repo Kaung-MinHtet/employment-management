@@ -1,0 +1,499 @@
+{
+	"info": {
+		"_postman_id": "a1fc45be-5292-4b6d-b52b-a31e01336454",
+		"name": "Employment Management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23292837"
+	},
+	"item": [
+		{
+			"name": "login to get token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "admin@admin.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://employment-management.test/api/login",
+					"protocol": "http",
+					"host": [
+						"employment-management",
+						"test"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "companies",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNDJjNTc5NDkyZGEzZDk1ZmQ1NTg0YWE4YWNhZjg3NzJlY2IwMWM4NDRjOWQxZWE0MTc1ZWY3ZDhmYzhhYmMyYmU0ZjdlNjQ4MzkxMmNiMjUiLCJpYXQiOjE3MzIxNzIzMzguNTUwNDAyLCJuYmYiOjE3MzIxNzIzMzguNTUwNDAzLCJleHAiOjE3NjM3MDgzMzguNTQ1ODM1LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.Lu7VakN3MApyUNca0o6YGzFlP8pC4r8C5bEUjgDXibCs1Kf31-flAF6Ea_TEeEWK7SNVOh9t3M7NldMy5eVJYTpQfzEMdiVo00cmBx4GEj7Pr2Wenbrk4uNoZT0bcRO7Pes3mV6dBXDcd0CGLjiKsCoKk_ObJFdk_s2oalF7PRWvZiVA5lLEo9rCYBhiHKUryNFpE_f8rcAPof5m1F3wJWXczFa0GTEPoT_HUeaYwrbrt1Hp9OXKEPTt-2ok6ujoNieK5xFzlwJjP2UTqIdKaLVkFPy83GOuuDgb2GHcTpbRIgxy_fAzzUVrOpPo1gJT6ogHGv4q2TRGXCANWsVwWym5GXuDME8mMdQCKM0NtmcYuVp25NIvPvMn0iY_YrY4JblfAnotiXu0Zi_SKKiQI6XiRtKa67BMdFC1F_O2Mff0JqKOfZ3JjcocKlAzXA-ELwcG7WaqhgYbCbVkUJ5XGQBDl7EnyQSIi1U0NTjWuAem7PkBa-ZW423JicdrWgWIFZsU9FYxGoT28wZ5KAUpvZTy--XoT0CI7V9ZxjTDm8Qs4qQo4W-inuvaZQ6eJcLYeTXQU4mF7WsgL8xF8JlmV2W5yof9JGYbBz_ujYGjhUtw0GPp9my0WaAUeb2Ua1aH1gaaufVttmsRnZa_rPP8pnqofYLoL5l_FspBlrDNk2U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "test",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "test@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "website",
+							"value": "test.com",
+							"type": "text"
+						},
+						{
+							"key": "logo",
+							"type": "file",
+							"src": "/Users/mac/Downloads/jcgv.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://employment-management.test/api/company",
+					"protocol": "http",
+					"host": [
+						"employment-management",
+						"test"
+					],
+					"path": [
+						"api",
+						"company"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "store company",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNDJjNTc5NDkyZGEzZDk1ZmQ1NTg0YWE4YWNhZjg3NzJlY2IwMWM4NDRjOWQxZWE0MTc1ZWY3ZDhmYzhhYmMyYmU0ZjdlNjQ4MzkxMmNiMjUiLCJpYXQiOjE3MzIxNzIzMzguNTUwNDAyLCJuYmYiOjE3MzIxNzIzMzguNTUwNDAzLCJleHAiOjE3NjM3MDgzMzguNTQ1ODM1LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.Lu7VakN3MApyUNca0o6YGzFlP8pC4r8C5bEUjgDXibCs1Kf31-flAF6Ea_TEeEWK7SNVOh9t3M7NldMy5eVJYTpQfzEMdiVo00cmBx4GEj7Pr2Wenbrk4uNoZT0bcRO7Pes3mV6dBXDcd0CGLjiKsCoKk_ObJFdk_s2oalF7PRWvZiVA5lLEo9rCYBhiHKUryNFpE_f8rcAPof5m1F3wJWXczFa0GTEPoT_HUeaYwrbrt1Hp9OXKEPTt-2ok6ujoNieK5xFzlwJjP2UTqIdKaLVkFPy83GOuuDgb2GHcTpbRIgxy_fAzzUVrOpPo1gJT6ogHGv4q2TRGXCANWsVwWym5GXuDME8mMdQCKM0NtmcYuVp25NIvPvMn0iY_YrY4JblfAnotiXu0Zi_SKKiQI6XiRtKa67BMdFC1F_O2Mff0JqKOfZ3JjcocKlAzXA-ELwcG7WaqhgYbCbVkUJ5XGQBDl7EnyQSIi1U0NTjWuAem7PkBa-ZW423JicdrWgWIFZsU9FYxGoT28wZ5KAUpvZTy--XoT0CI7V9ZxjTDm8Qs4qQo4W-inuvaZQ6eJcLYeTXQU4mF7WsgL8xF8JlmV2W5yof9JGYbBz_ujYGjhUtw0GPp9my0WaAUeb2Ua1aH1gaaufVttmsRnZa_rPP8pnqofYLoL5l_FspBlrDNk2U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "testtt",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "testtt@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "website",
+							"value": "https://test.com",
+							"type": "text"
+						},
+						{
+							"key": "logo",
+							"type": "file",
+							"src": "/Users/mac/Downloads/jcgv.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://employment-management.test/api/company",
+					"protocol": "http",
+					"host": [
+						"employment-management",
+						"test"
+					],
+					"path": [
+						"api",
+						"company"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get company",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNDJjNTc5NDkyZGEzZDk1ZmQ1NTg0YWE4YWNhZjg3NzJlY2IwMWM4NDRjOWQxZWE0MTc1ZWY3ZDhmYzhhYmMyYmU0ZjdlNjQ4MzkxMmNiMjUiLCJpYXQiOjE3MzIxNzIzMzguNTUwNDAyLCJuYmYiOjE3MzIxNzIzMzguNTUwNDAzLCJleHAiOjE3NjM3MDgzMzguNTQ1ODM1LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.Lu7VakN3MApyUNca0o6YGzFlP8pC4r8C5bEUjgDXibCs1Kf31-flAF6Ea_TEeEWK7SNVOh9t3M7NldMy5eVJYTpQfzEMdiVo00cmBx4GEj7Pr2Wenbrk4uNoZT0bcRO7Pes3mV6dBXDcd0CGLjiKsCoKk_ObJFdk_s2oalF7PRWvZiVA5lLEo9rCYBhiHKUryNFpE_f8rcAPof5m1F3wJWXczFa0GTEPoT_HUeaYwrbrt1Hp9OXKEPTt-2ok6ujoNieK5xFzlwJjP2UTqIdKaLVkFPy83GOuuDgb2GHcTpbRIgxy_fAzzUVrOpPo1gJT6ogHGv4q2TRGXCANWsVwWym5GXuDME8mMdQCKM0NtmcYuVp25NIvPvMn0iY_YrY4JblfAnotiXu0Zi_SKKiQI6XiRtKa67BMdFC1F_O2Mff0JqKOfZ3JjcocKlAzXA-ELwcG7WaqhgYbCbVkUJ5XGQBDl7EnyQSIi1U0NTjWuAem7PkBa-ZW423JicdrWgWIFZsU9FYxGoT28wZ5KAUpvZTy--XoT0CI7V9ZxjTDm8Qs4qQo4W-inuvaZQ6eJcLYeTXQU4mF7WsgL8xF8JlmV2W5yof9JGYbBz_ujYGjhUtw0GPp9my0WaAUeb2Ua1aH1gaaufVttmsRnZa_rPP8pnqofYLoL5l_FspBlrDNk2U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://employment-management.test/api/company/show/12",
+					"protocol": "http",
+					"host": [
+						"employment-management",
+						"test"
+					],
+					"path": [
+						"api",
+						"company",
+						"show",
+						"12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update company",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNDJjNTc5NDkyZGEzZDk1ZmQ1NTg0YWE4YWNhZjg3NzJlY2IwMWM4NDRjOWQxZWE0MTc1ZWY3ZDhmYzhhYmMyYmU0ZjdlNjQ4MzkxMmNiMjUiLCJpYXQiOjE3MzIxNzIzMzguNTUwNDAyLCJuYmYiOjE3MzIxNzIzMzguNTUwNDAzLCJleHAiOjE3NjM3MDgzMzguNTQ1ODM1LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.Lu7VakN3MApyUNca0o6YGzFlP8pC4r8C5bEUjgDXibCs1Kf31-flAF6Ea_TEeEWK7SNVOh9t3M7NldMy5eVJYTpQfzEMdiVo00cmBx4GEj7Pr2Wenbrk4uNoZT0bcRO7Pes3mV6dBXDcd0CGLjiKsCoKk_ObJFdk_s2oalF7PRWvZiVA5lLEo9rCYBhiHKUryNFpE_f8rcAPof5m1F3wJWXczFa0GTEPoT_HUeaYwrbrt1Hp9OXKEPTt-2ok6ujoNieK5xFzlwJjP2UTqIdKaLVkFPy83GOuuDgb2GHcTpbRIgxy_fAzzUVrOpPo1gJT6ogHGv4q2TRGXCANWsVwWym5GXuDME8mMdQCKM0NtmcYuVp25NIvPvMn0iY_YrY4JblfAnotiXu0Zi_SKKiQI6XiRtKa67BMdFC1F_O2Mff0JqKOfZ3JjcocKlAzXA-ELwcG7WaqhgYbCbVkUJ5XGQBDl7EnyQSIi1U0NTjWuAem7PkBa-ZW423JicdrWgWIFZsU9FYxGoT28wZ5KAUpvZTy--XoT0CI7V9ZxjTDm8Qs4qQo4W-inuvaZQ6eJcLYeTXQU4mF7WsgL8xF8JlmV2W5yof9JGYbBz_ujYGjhUtw0GPp9my0WaAUeb2Ua1aH1gaaufVttmsRnZa_rPP8pnqofYLoL5l_FspBlrDNk2U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"333\",\n    \"email\": \"333email@email.com\",\n    \"website\": \"https://website.com\"\n}"
+				},
+				"url": {
+					"raw": "http://employment-management.test/api/company/14",
+					"protocol": "http",
+					"host": [
+						"employment-management",
+						"test"
+					],
+					"path": [
+						"api",
+						"company",
+						"14"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete company",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNDJjNTc5NDkyZGEzZDk1ZmQ1NTg0YWE4YWNhZjg3NzJlY2IwMWM4NDRjOWQxZWE0MTc1ZWY3ZDhmYzhhYmMyYmU0ZjdlNjQ4MzkxMmNiMjUiLCJpYXQiOjE3MzIxNzIzMzguNTUwNDAyLCJuYmYiOjE3MzIxNzIzMzguNTUwNDAzLCJleHAiOjE3NjM3MDgzMzguNTQ1ODM1LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.Lu7VakN3MApyUNca0o6YGzFlP8pC4r8C5bEUjgDXibCs1Kf31-flAF6Ea_TEeEWK7SNVOh9t3M7NldMy5eVJYTpQfzEMdiVo00cmBx4GEj7Pr2Wenbrk4uNoZT0bcRO7Pes3mV6dBXDcd0CGLjiKsCoKk_ObJFdk_s2oalF7PRWvZiVA5lLEo9rCYBhiHKUryNFpE_f8rcAPof5m1F3wJWXczFa0GTEPoT_HUeaYwrbrt1Hp9OXKEPTt-2ok6ujoNieK5xFzlwJjP2UTqIdKaLVkFPy83GOuuDgb2GHcTpbRIgxy_fAzzUVrOpPo1gJT6ogHGv4q2TRGXCANWsVwWym5GXuDME8mMdQCKM0NtmcYuVp25NIvPvMn0iY_YrY4JblfAnotiXu0Zi_SKKiQI6XiRtKa67BMdFC1F_O2Mff0JqKOfZ3JjcocKlAzXA-ELwcG7WaqhgYbCbVkUJ5XGQBDl7EnyQSIi1U0NTjWuAem7PkBa-ZW423JicdrWgWIFZsU9FYxGoT28wZ5KAUpvZTy--XoT0CI7V9ZxjTDm8Qs4qQo4W-inuvaZQ6eJcLYeTXQU4mF7WsgL8xF8JlmV2W5yof9JGYbBz_ujYGjhUtw0GPp9my0WaAUeb2Ua1aH1gaaufVttmsRnZa_rPP8pnqofYLoL5l_FspBlrDNk2U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://employment-management.test/api/company/13",
+					"protocol": "http",
+					"host": [
+						"employment-management",
+						"test"
+					],
+					"path": [
+						"api",
+						"company",
+						"13"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "employees",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNDJjNTc5NDkyZGEzZDk1ZmQ1NTg0YWE4YWNhZjg3NzJlY2IwMWM4NDRjOWQxZWE0MTc1ZWY3ZDhmYzhhYmMyYmU0ZjdlNjQ4MzkxMmNiMjUiLCJpYXQiOjE3MzIxNzIzMzguNTUwNDAyLCJuYmYiOjE3MzIxNzIzMzguNTUwNDAzLCJleHAiOjE3NjM3MDgzMzguNTQ1ODM1LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.Lu7VakN3MApyUNca0o6YGzFlP8pC4r8C5bEUjgDXibCs1Kf31-flAF6Ea_TEeEWK7SNVOh9t3M7NldMy5eVJYTpQfzEMdiVo00cmBx4GEj7Pr2Wenbrk4uNoZT0bcRO7Pes3mV6dBXDcd0CGLjiKsCoKk_ObJFdk_s2oalF7PRWvZiVA5lLEo9rCYBhiHKUryNFpE_f8rcAPof5m1F3wJWXczFa0GTEPoT_HUeaYwrbrt1Hp9OXKEPTt-2ok6ujoNieK5xFzlwJjP2UTqIdKaLVkFPy83GOuuDgb2GHcTpbRIgxy_fAzzUVrOpPo1gJT6ogHGv4q2TRGXCANWsVwWym5GXuDME8mMdQCKM0NtmcYuVp25NIvPvMn0iY_YrY4JblfAnotiXu0Zi_SKKiQI6XiRtKa67BMdFC1F_O2Mff0JqKOfZ3JjcocKlAzXA-ELwcG7WaqhgYbCbVkUJ5XGQBDl7EnyQSIi1U0NTjWuAem7PkBa-ZW423JicdrWgWIFZsU9FYxGoT28wZ5KAUpvZTy--XoT0CI7V9ZxjTDm8Qs4qQo4W-inuvaZQ6eJcLYeTXQU4mF7WsgL8xF8JlmV2W5yof9JGYbBz_ujYGjhUtw0GPp9my0WaAUeb2Ua1aH1gaaufVttmsRnZa_rPP8pnqofYLoL5l_FspBlrDNk2U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://employment-management.test/api/employee",
+					"protocol": "http",
+					"host": [
+						"employment-management",
+						"test"
+					],
+					"path": [
+						"api",
+						"employee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "store employee",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNDJjNTc5NDkyZGEzZDk1ZmQ1NTg0YWE4YWNhZjg3NzJlY2IwMWM4NDRjOWQxZWE0MTc1ZWY3ZDhmYzhhYmMyYmU0ZjdlNjQ4MzkxMmNiMjUiLCJpYXQiOjE3MzIxNzIzMzguNTUwNDAyLCJuYmYiOjE3MzIxNzIzMzguNTUwNDAzLCJleHAiOjE3NjM3MDgzMzguNTQ1ODM1LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.Lu7VakN3MApyUNca0o6YGzFlP8pC4r8C5bEUjgDXibCs1Kf31-flAF6Ea_TEeEWK7SNVOh9t3M7NldMy5eVJYTpQfzEMdiVo00cmBx4GEj7Pr2Wenbrk4uNoZT0bcRO7Pes3mV6dBXDcd0CGLjiKsCoKk_ObJFdk_s2oalF7PRWvZiVA5lLEo9rCYBhiHKUryNFpE_f8rcAPof5m1F3wJWXczFa0GTEPoT_HUeaYwrbrt1Hp9OXKEPTt-2ok6ujoNieK5xFzlwJjP2UTqIdKaLVkFPy83GOuuDgb2GHcTpbRIgxy_fAzzUVrOpPo1gJT6ogHGv4q2TRGXCANWsVwWym5GXuDME8mMdQCKM0NtmcYuVp25NIvPvMn0iY_YrY4JblfAnotiXu0Zi_SKKiQI6XiRtKa67BMdFC1F_O2Mff0JqKOfZ3JjcocKlAzXA-ELwcG7WaqhgYbCbVkUJ5XGQBDl7EnyQSIi1U0NTjWuAem7PkBa-ZW423JicdrWgWIFZsU9FYxGoT28wZ5KAUpvZTy--XoT0CI7V9ZxjTDm8Qs4qQo4W-inuvaZQ6eJcLYeTXQU4mF7WsgL8xF8JlmV2W5yof9JGYbBz_ujYGjhUtw0GPp9my0WaAUeb2Ua1aH1gaaufVttmsRnZa_rPP8pnqofYLoL5l_FspBlrDNk2U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "test",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "test@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "09123456789",
+							"type": "text"
+						},
+						{
+							"key": "profile_picture",
+							"type": "file",
+							"src": "/Users/mac/Downloads/jcgv.png"
+						},
+						{
+							"key": "company_id",
+							"value": "3",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://employment-management.test/api/employee",
+					"protocol": "http",
+					"host": [
+						"employment-management",
+						"test"
+					],
+					"path": [
+						"api",
+						"employee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get employee",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNDJjNTc5NDkyZGEzZDk1ZmQ1NTg0YWE4YWNhZjg3NzJlY2IwMWM4NDRjOWQxZWE0MTc1ZWY3ZDhmYzhhYmMyYmU0ZjdlNjQ4MzkxMmNiMjUiLCJpYXQiOjE3MzIxNzIzMzguNTUwNDAyLCJuYmYiOjE3MzIxNzIzMzguNTUwNDAzLCJleHAiOjE3NjM3MDgzMzguNTQ1ODM1LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.Lu7VakN3MApyUNca0o6YGzFlP8pC4r8C5bEUjgDXibCs1Kf31-flAF6Ea_TEeEWK7SNVOh9t3M7NldMy5eVJYTpQfzEMdiVo00cmBx4GEj7Pr2Wenbrk4uNoZT0bcRO7Pes3mV6dBXDcd0CGLjiKsCoKk_ObJFdk_s2oalF7PRWvZiVA5lLEo9rCYBhiHKUryNFpE_f8rcAPof5m1F3wJWXczFa0GTEPoT_HUeaYwrbrt1Hp9OXKEPTt-2ok6ujoNieK5xFzlwJjP2UTqIdKaLVkFPy83GOuuDgb2GHcTpbRIgxy_fAzzUVrOpPo1gJT6ogHGv4q2TRGXCANWsVwWym5GXuDME8mMdQCKM0NtmcYuVp25NIvPvMn0iY_YrY4JblfAnotiXu0Zi_SKKiQI6XiRtKa67BMdFC1F_O2Mff0JqKOfZ3JjcocKlAzXA-ELwcG7WaqhgYbCbVkUJ5XGQBDl7EnyQSIi1U0NTjWuAem7PkBa-ZW423JicdrWgWIFZsU9FYxGoT28wZ5KAUpvZTy--XoT0CI7V9ZxjTDm8Qs4qQo4W-inuvaZQ6eJcLYeTXQU4mF7WsgL8xF8JlmV2W5yof9JGYbBz_ujYGjhUtw0GPp9my0WaAUeb2Ua1aH1gaaufVttmsRnZa_rPP8pnqofYLoL5l_FspBlrDNk2U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://employment-management.test/api/employee/5",
+					"protocol": "http",
+					"host": [
+						"employment-management",
+						"test"
+					],
+					"path": [
+						"api",
+						"employee",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update employee",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNDJjNTc5NDkyZGEzZDk1ZmQ1NTg0YWE4YWNhZjg3NzJlY2IwMWM4NDRjOWQxZWE0MTc1ZWY3ZDhmYzhhYmMyYmU0ZjdlNjQ4MzkxMmNiMjUiLCJpYXQiOjE3MzIxNzIzMzguNTUwNDAyLCJuYmYiOjE3MzIxNzIzMzguNTUwNDAzLCJleHAiOjE3NjM3MDgzMzguNTQ1ODM1LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.Lu7VakN3MApyUNca0o6YGzFlP8pC4r8C5bEUjgDXibCs1Kf31-flAF6Ea_TEeEWK7SNVOh9t3M7NldMy5eVJYTpQfzEMdiVo00cmBx4GEj7Pr2Wenbrk4uNoZT0bcRO7Pes3mV6dBXDcd0CGLjiKsCoKk_ObJFdk_s2oalF7PRWvZiVA5lLEo9rCYBhiHKUryNFpE_f8rcAPof5m1F3wJWXczFa0GTEPoT_HUeaYwrbrt1Hp9OXKEPTt-2ok6ujoNieK5xFzlwJjP2UTqIdKaLVkFPy83GOuuDgb2GHcTpbRIgxy_fAzzUVrOpPo1gJT6ogHGv4q2TRGXCANWsVwWym5GXuDME8mMdQCKM0NtmcYuVp25NIvPvMn0iY_YrY4JblfAnotiXu0Zi_SKKiQI6XiRtKa67BMdFC1F_O2Mff0JqKOfZ3JjcocKlAzXA-ELwcG7WaqhgYbCbVkUJ5XGQBDl7EnyQSIi1U0NTjWuAem7PkBa-ZW423JicdrWgWIFZsU9FYxGoT28wZ5KAUpvZTy--XoT0CI7V9ZxjTDm8Qs4qQo4W-inuvaZQ6eJcLYeTXQU4mF7WsgL8xF8JlmV2W5yof9JGYbBz_ujYGjhUtw0GPp9my0WaAUeb2Ua1aH1gaaufVttmsRnZa_rPP8pnqofYLoL5l_FspBlrDNk2U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"d1\",\n    \"email\": \"d1@gmail.com\",\n    \"phone\": \"09877777777\",\n    \"company_id\": \"5\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://employment-management.test/api/employee/5",
+					"protocol": "http",
+					"host": [
+						"employment-management",
+						"test"
+					],
+					"path": [
+						"api",
+						"employee",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete employee",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNDJjNTc5NDkyZGEzZDk1ZmQ1NTg0YWE4YWNhZjg3NzJlY2IwMWM4NDRjOWQxZWE0MTc1ZWY3ZDhmYzhhYmMyYmU0ZjdlNjQ4MzkxMmNiMjUiLCJpYXQiOjE3MzIxNzIzMzguNTUwNDAyLCJuYmYiOjE3MzIxNzIzMzguNTUwNDAzLCJleHAiOjE3NjM3MDgzMzguNTQ1ODM1LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.Lu7VakN3MApyUNca0o6YGzFlP8pC4r8C5bEUjgDXibCs1Kf31-flAF6Ea_TEeEWK7SNVOh9t3M7NldMy5eVJYTpQfzEMdiVo00cmBx4GEj7Pr2Wenbrk4uNoZT0bcRO7Pes3mV6dBXDcd0CGLjiKsCoKk_ObJFdk_s2oalF7PRWvZiVA5lLEo9rCYBhiHKUryNFpE_f8rcAPof5m1F3wJWXczFa0GTEPoT_HUeaYwrbrt1Hp9OXKEPTt-2ok6ujoNieK5xFzlwJjP2UTqIdKaLVkFPy83GOuuDgb2GHcTpbRIgxy_fAzzUVrOpPo1gJT6ogHGv4q2TRGXCANWsVwWym5GXuDME8mMdQCKM0NtmcYuVp25NIvPvMn0iY_YrY4JblfAnotiXu0Zi_SKKiQI6XiRtKa67BMdFC1F_O2Mff0JqKOfZ3JjcocKlAzXA-ELwcG7WaqhgYbCbVkUJ5XGQBDl7EnyQSIi1U0NTjWuAem7PkBa-ZW423JicdrWgWIFZsU9FYxGoT28wZ5KAUpvZTy--XoT0CI7V9ZxjTDm8Qs4qQo4W-inuvaZQ6eJcLYeTXQU4mF7WsgL8xF8JlmV2W5yof9JGYbBz_ujYGjhUtw0GPp9my0WaAUeb2Ua1aH1gaaufVttmsRnZa_rPP8pnqofYLoL5l_FspBlrDNk2U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://employment-management.test/api/employee/5",
+					"protocol": "http",
+					"host": [
+						"employment-management",
+						"test"
+					],
+					"path": [
+						"api",
+						"employee",
+						"5"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

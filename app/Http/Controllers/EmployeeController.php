@@ -17,7 +17,11 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        $employees = Employee::with('company')->paginate(10);
+        if(auth()->user()->role == "admin") {
+            $employees = Employee::with('company')->paginate(10);
+        } else {
+            $employees = Employee::with('company')->where('company_id', auth()->user()->company_id ?? 0)->paginate(10);
+        }
         return Inertia::render('Employee/Index', ['employees' => $employees, 'storage_url' => env('APP_URL'), 'toast_message' => session('toast_message')]);
     }
 
@@ -26,7 +30,11 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        $companies = Company::all();
+        if(auth()->user()->role == "admin") {
+            $companies = Company::all();
+        } else {
+            $companies = Company::where('id', auth()->user()->company_id ?? 0)->get();
+        }
         return Inertia::render('Employee/Create', ['companies' => $companies]);
     }
 
@@ -35,7 +43,7 @@ class EmployeeController extends Controller
      */
     public function store(EmployeeStoreRequest $request)
     {
-         $imageName = time() . '.' . $request->profile_picture->getClientOriginalName();
+         $imageName = time() . '.' . $request->file('profile_picture')->getClientOriginalExtension();
          Storage::disk('public')->putFileAs('/', $request->profile_picture, $imageName);
  
  
@@ -66,7 +74,11 @@ class EmployeeController extends Controller
     {
          // Fetch the employee record from the database by ID
          $employee = Employee::findOrFail($id);
-         $companies = Company::all();
+         if(auth()->user()->role == "admin") {
+            $companies = Company::all();
+        } else {
+            $companies = Company::where('id', auth()->user()->company_id ?? 0)->get();
+        }
 
          // Return the edit page with the employee data
          return Inertia::render('Employee/Edit', [
@@ -83,7 +95,7 @@ class EmployeeController extends Controller
     {
         $imageName = NULL;
         if($request->profile_picture) {
-            $imageName = time() . '.' . $request->profile_picture->getClientOriginalName();
+            $imageName = time() . '.' . $request->file('profile_picture')->getClientOriginalExtension();
             Storage::disk('public')->putFileAs('/', $request->profile_picture, $imageName);
         }
 
