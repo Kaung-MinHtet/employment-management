@@ -27,7 +27,7 @@ const Edit = ({ employee, companies, storage_url }) => {
         });
     
         // Add `_method` for Laravel's form method spoofing
-        formData.append('_method', 'PUT');
+        // formData.append('_method', 'PUT');
     
         // Use `router.post` for submitting the data
         router.post(route('employee.update', employee.id), formData, {

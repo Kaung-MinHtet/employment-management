@@ -9,7 +9,7 @@ const FilePreview = ({ file, setFile, onFileChange }) => {
                 preview: URL.createObjectURL(selectedFile),
             });
 
-            // setFile(fileWithPreview); // Update local state
+            setFile(fileWithPreview); // Update local state
             onFileChange(fileWithPreview); // Notify parent component
             // console.log(fileWithPreview)
         }

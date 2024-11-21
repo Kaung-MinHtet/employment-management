@@ -35,7 +35,7 @@ class CompanyController extends Controller
     public function store(CompanyStoreRequest $request)
     {
         // dd($request);
-        $imageName = time() . $request->file('logo')->getClientOriginalExtension();
+        $imageName = time() . "." . $request->file('logo')->getClientOriginalExtension();
         Storage::disk('public')->putFileAs('/', $request->logo, $imageName);
 
 
@@ -81,7 +81,7 @@ class CompanyController extends Controller
         // dd($request);
         $imageName = NULL;
         if($request->logo) {
-            $imageName = time() . $request->file('logo')->getClientOriginalExtension();
+            $imageName = time() . "." . $request->file('logo')->getClientOriginalExtension();
             Storage::disk('public')->putFileAs('/', $request->logo, $imageName);
         }
 
@@ -93,7 +93,8 @@ class CompanyController extends Controller
         ]);
 
         session()->flash('toast_message', 'Company updated successfully!');
-        return to_route('company.index');
+        // return to_route('company.index');
+        return Inertia::location(route('company.index'));
     }
 
     /**
