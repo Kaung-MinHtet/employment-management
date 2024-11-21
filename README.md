@@ -8,7 +8,7 @@ Project for senior web developer coding test
 - [Project Overview](#project-overview)
 - [Versions](#versions)
 - [Project Setup](#project-setup)
-- [Postman file location](#postman-file)
+- [Postman File Location](#postman-file)
 
 ---
 
@@ -60,6 +60,7 @@ php artisan serve
 ```
 
 ---
-## Postman file location
+
+## Postman File Location
 
 Postman collection file is exists in the root project folder
