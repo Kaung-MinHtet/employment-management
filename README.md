@@ -8,12 +8,7 @@ Project for senior web developer coding test
 - [Project Overview](#project-overview)
 - [Versions](#versions)
 - [Project Setup](#project-setup)
-- [Configuration](#configuration)
-- [Database Setup](#database-setup)
-- [Running Tests](#running-tests)
-- [Testing Environment](#testing-environment)
-- [Environment Configuration](#environment-configuration)
-- [License](#license)
+- [Postman file location](#postman-file)
 
 ---
 
@@ -57,3 +52,13 @@ cp .env.example .env
 php artisan key:generate
 php artisan migrate --seed
 npm install && npm run dev
+
+
+##### Open new terminal tab
+```bash
+php artisan serve
+
+---
+## Postman file location
+
+Postman collection file is exists in the root project folder
