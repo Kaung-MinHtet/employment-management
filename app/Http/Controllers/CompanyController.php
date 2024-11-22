@@ -104,7 +104,7 @@ class CompanyController extends Controller
      */
     public function destroy(string $id)
     {
-        User::where('company_id', $id)->update('company_id', NULL);
+        User::where('company_id', $id)->update(['company_id', NULL]);
         Employee::where('company_id', $id)->delete();
         Company::find($id)->delete();
 
