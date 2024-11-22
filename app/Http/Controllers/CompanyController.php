@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CompanyStoreRequest;
 use App\Http\Requests\CompanyUpdateRequest;
 use App\Models\Company;
+use App\Models\Employee;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
@@ -102,6 +104,8 @@ class CompanyController extends Controller
      */
     public function destroy(string $id)
     {
+        User::where('company_id', $id)->update('company_id', NULL);
+        Employee::where('company_id', $id)->delete();
         Company::find($id)->delete();
 
         session()->flash('toast_message', 'Company deleted successfully!');
