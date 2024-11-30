@@ -71,12 +71,14 @@ Route::middleware('auth')->group(function () {
 
     // company
     // Route::resource('/company', CompanyController::class);
-    Route::get('/company', [CompanyController::class, 'index'])->name('company.index');
-    Route::get('/company/create', [CompanyController::class, 'create'])->name('company.create');
-    Route::post('/company', [CompanyController::class, 'store'])->name('company.store');
-    Route::get('/company/{id}/edit', [CompanyController::class, 'edit'])->name('company.edit');
-    Route::post('/company/{id}/update', [CompanyController::class, 'update'])->name('company.update');
-    Route::delete('/company/{id}', [CompanyController::class, 'destroy'])->name('company.destroy');
+    Route::middleware('can:admin-access')->group(function() {
+        Route::get('/company', [CompanyController::class, 'index'])->name('company.index');
+        Route::get('/company/create', [CompanyController::class, 'create'])->name('company.create');
+        Route::post('/company', [CompanyController::class, 'store'])->name('company.store');
+        Route::get('/company/{id}/edit', [CompanyController::class, 'edit'])->name('company.edit');
+        Route::post('/company/{id}/update', [CompanyController::class, 'update'])->name('company.update');
+        Route::delete('/company/{id}', [CompanyController::class, 'destroy'])->name('company.destroy');
+    });
 
     // employee
     // Route::resource('/employee', EmployeeController::class);
@@ -88,9 +90,12 @@ Route::middleware('auth')->group(function () {
     Route::delete('/employee/{id}', [EmployeeController::class, 'destroy'])->name('employee.destroy');
 
     // user
-    Route::get('/user', [UserController::class, 'index'])->name('user.index');
-    Route::get('/user/{id}/edit', [UserController::class, 'edit'])->name('user.edit');
-    Route::put('/user/{id}', [UserController::class, 'update'])->name('user.update');
+    Route::middleware('can:admin-access')->group(function() {
+        Route::get('/user', [UserController::class, 'index'])->name('user.index');
+        Route::get('/user/{id}/edit', [UserController::class, 'edit'])->name('user.edit');
+        Route::put('/user/{id}', [UserController::class, 'update'])->name('user.update');
+    });
+    
 });
 
 require __DIR__.'/auth.php';

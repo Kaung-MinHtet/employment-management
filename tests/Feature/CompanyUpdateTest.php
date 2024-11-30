@@ -19,7 +19,9 @@ class CompanyUpdateTest extends TestCase
     {
 
         // Create a user
-        $user = User::factory()->create();
+        $user = User::factory()->create([
+            'role' => 'admin'
+        ]);
 
         // Authenticate the user
         $this->actingAs($user);
@@ -57,7 +59,9 @@ class CompanyUpdateTest extends TestCase
     public function company_update_requires_valid_data()
     {
         // Create a user
-        $user = User::factory()->create();
+        $user = User::factory()->create([
+            'role' => 'admin'
+        ]);
 
         // Authenticate the user
         // $this->actingAs($user);
