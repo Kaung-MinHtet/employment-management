@@ -86,8 +86,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/employee/create', [EmployeeController::class, 'create'])->name('employee.create');
     Route::post('/employee', [EmployeeController::class, 'store'])->name('employee.store');
     Route::get('/employee/{id}/edit', [EmployeeController::class, 'edit'])->name('employee.edit');
-    Route::post('/employee/{id}/update', [EmployeeController::class, 'update'])->middleware('can:manage-employee')->name('employee.update');
-    Route::delete('/employee/{id}', [EmployeeController::class, 'destroy'])->middleware('can:manage-employee')->name('employee.destroy');
+    Route::post('/employee/{id}/update', [EmployeeController::class, 'update'])->name('employee.update');
+    Route::delete('/employee/{id}', [EmployeeController::class, 'destroy'])->name('employee.destroy');
 
     // user
     Route::middleware('can:admin-access')->group(function() {

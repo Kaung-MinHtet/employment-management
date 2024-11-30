@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\Employee;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
@@ -61,6 +62,7 @@ class EmployeeController extends Controller
     // Update a employee
     public function update(Request $request, $id)
     {
+        Gate::allows('manage-employee', Employee::find($id));
 
         // Validation
         $validator = Validator::make($request->all(), [
@@ -101,6 +103,8 @@ class EmployeeController extends Controller
     // Delete a employee
     public function destroy($id)
     {
+        Gate::allows('manage-employee', Employee::find($id));
+
         $employee = Employee::findOrFail($id);
         $employee->delete();
 

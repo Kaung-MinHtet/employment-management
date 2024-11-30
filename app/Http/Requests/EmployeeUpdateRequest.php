@@ -25,7 +25,7 @@ class EmployeeUpdateRequest extends FormRequest
             'company_id' => 'required|exists:companies,id',
             'name' => 'required|max:255',
             'email' => 'required|email',
-            'phone' => 'required|string',
+            'phone' => 'nullable|string',
             'profile_picture' => 'nullable|mimetypes:image/*'
         ];
     }
