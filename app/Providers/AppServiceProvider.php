@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Employee;
 use App\Models\User;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Vite;
@@ -17,6 +18,10 @@ class AppServiceProvider extends ServiceProvider
     {
         Gate::define('admin-access', function(User $user) {
             return $user->role == "admin";
+        });
+
+        Gate::define('manage-employee', function(User $user, Employee $employee) {
+            return $user->role == "admin" || ($user->role == "manager" && $user->company_id == $employee->company_id);
         });
     }
 
